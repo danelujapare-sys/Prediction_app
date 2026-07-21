@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  kalshi-streak-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kalshi_crypto_streak_monitor
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - RECIPIENT_EMAIL=danelujapare@gmail.com
+      - POLL_INTERVAL_SECONDS=60
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

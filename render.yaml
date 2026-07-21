@@ -1,0 +1,23 @@
+services:
+  - type: worker
+    name: kalshi-crypto-streak-monitor
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python src/realtime_monitor.py"
+    envVars:
+      - key: RECIPIENT_EMAIL
+        value: danelujapare@gmail.com
+      - key: POLL_INTERVAL_SECONDS
+        value: "60"
+      - key: SMTP_SERVER
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SENDER_EMAIL
+        sync: false
