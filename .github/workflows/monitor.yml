@@ -9,6 +9,8 @@ on:
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_NODE20_DEPRECATION_WARNING: 'false'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
